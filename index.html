@@ -1,14 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harmonic Egg Blog</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; }
-    h1 { color: #333; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", "Garamond", serif;
+      line-height: 1.7;
+      color: #3D3D3D;
+      background-color: #F8F7F5;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #E5E0D9;
+      padding: 3rem 0;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+      color: #2a2a2a;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #7a7a7a;
+      font-style: italic;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    .posts-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .post-card {
+      background-color: #ffffff;
+      border: 1px solid #E5E0D9;
+      padding: 2rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .post-card:hover {
+      border-color: #8B7355;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-card h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: #2a2a2a;
+    }
+
+    .post-card .meta {
+      font-size: 0.9rem;
+      color: #7a7a7a;
+      margin-bottom: 1rem;
+      font-style: italic;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    .post-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #5a5a5a;
+    }
+
+    .post-card:hover h2 {
+      color: #8B7355;
+    }
+
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid #E5E0D9;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #7a7a7a;
+    }
+
+    footer .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    footer a {
+      color: #8B7355;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: #7a7a7a;
+    }
+
+    .empty-state p {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      main {
+        padding: 0 1rem 2rem;
+      }
+
+      .post-card {
+        padding: 1.5rem;
+      }
+
+      .post-card h2 {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Harmonic Egg Blog</h1>
-  <p>Blog posts will appear here .</p>
+  <header>
+    <h1>Harmonic Egg Blog</h1>
+    <p>Insights on sound healing, sacred geometry, and wellness</p>
+  </header>
+
+  <main>
+    <div class="posts-grid" id="posts">
+      <div class="empty-state">
+        <p>Blog posts will appear here as they are published.</p>
+        <p><a href="https://harmonicegg.com">Learn more about Harmonic Egg</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><a href="https://harmonicegg.com">Harmonic Egg Official</a> / <a href="https://github.com/Harmonic-Egg/blog">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // This script will be replaced by a static post listing
+    // For now, it shows the empty state
+    // When posts are added via the Worker, they'll be committed as individual HTML files
+    // and you can generate this index dynamically or statically
+  </script>
 </body>
 </html>
