@@ -39,10 +39,33 @@
       color: #7a7a7a;
       font-style: italic;
       font-family: "Helvetica", sans-serif;
+      margin-bottom: 1.5rem;
     }
 
-    main {
-      max-width: 800px;
+    .search-box {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid #E5E0D9;
+      border-radius: 4px;
+      font-family: "Helvetica", sans-serif;
+      font-size: 0.95rem;
+      background-color: #F8F7F5;
+      color: #3D3D3D;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #8B7355;
+    }
+
+    .page-container {
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem 3rem;
     }
@@ -117,6 +140,150 @@
       color: #8B7355;
     }
 
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+      font-family: "Helvetica", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .pagination a {
+      color: #8B7355;
+      text-decoration: none;
+    }
+
+    .pagination a:hover {
+      text-decoration: underline;
+    }
+
+    .pagination-disabled {
+      color: #c0c0c0;
+    }
+
+    .pagination-status {
+      color: #7a7a7a;
+    }
+
+    .page-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+    }
+
+    .page-layout > .main-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sidebar {
+      width: 260px;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-box {
+      background-color: #ffffff;
+      border: 1px solid #E5E0D9;
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .sidebar-box h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: #2a2a2a;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .sidebar-list a {
+      color: #3D3D3D;
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .sidebar-list a:hover {
+      color: #8B7355;
+    }
+
+    .sidebar-list span {
+      font-size: 0.8rem;
+      color: #a0a0a0;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    .sidebar-about {
+      font-size: 0.9rem;
+      color: #5a5a5a;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-link {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #8B7355;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #8B7355;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top:hover {
+      background-color: #6B5344;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-width: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .sidebar-box {
+        flex: 1;
+        min-width: 240px;
+      }
+    }
+
     footer {
       background-color: #ffffff;
       border-top: 1px solid #E5E0D9;
@@ -128,7 +295,7 @@
     }
 
     footer .container {
-      max-width: 800px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -157,28 +324,32 @@
         font-size: 1.6rem;
       }
 
-      main {
+      .page-container {
         padding: 0 1rem 2rem;
-      }
-
-      .post-card {
-        padding: 1.5rem;
-      }
-
-      .post-card h2 {
-        font-size: 1.2rem;
       }
     }
   </style>
 </head>
-<body>
+<body id="top">
   <header>
     <h1>Harmonic Egg Blog</h1>
     <p>Insights on sound healing, sacred geometry, and wellness</p>
+    <div class="search-box">
+      <input type="text" id="blog-search" placeholder="Search posts..." autocomplete="off">
+    </div>
   </header>
 
-  <main>
-    <div class="posts-grid" id="posts">
+  <div class="page-container page-layout">
+    <main class="main-col">
+      <div class="posts-grid" id="posts">
+      <a class="post-card" href="/blog/posts/2026-08-12-understanding-the-impact-of-mp3-compression-on-528hz-sound-healing.html">
+        <img class="post-thumb" src="https://harmonicegg.com/wp-content/uploads/2026/08/Newsletter-Header-1-1024x341.jpg" alt="" loading="lazy">
+        <div class="post-card-body">
+          <h2>Understanding the Impact of MP3 Compression on 528Hz Sound Healing</h2>
+          <div class="meta">August 12, 2026</div>
+          <p>For many of us, the frequency of 528 Hz is known as the &quot;love frequency&quot; or the &quot;DNA frequency.&quot; It resonates with themes of transformation and cellular...</p>
+        </div>
+      </a>
       <a class="post-card" href="/blog/posts/2026-08-12-exploring-the-healing-powers-of-sound-and-light-with-gail-lynn.html">
         <img class="post-thumb" src="https://harmonicegg.com/wp-content/uploads/2026/08/Life-after-Dark-Show.jpg" alt="" loading="lazy">
         <div class="post-card-body">
@@ -227,13 +398,83 @@
           <p>We are thrilled to announce that the much-anticipated documentary, It’s Time , was showcased earlier today at 12:00 PM on New Reality TV, with a rebroadcast...</p>
         </div>
       </a>
-    </div>
-  </main>
+      </div>
+
+    </main>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <h3>Latest Posts</h3>
+          <ul class="sidebar-list">
+        <li><a href="/blog/posts/2026-08-12-understanding-the-impact-of-mp3-compression-on-528hz-sound-healing.html">Understanding the Impact of MP3 Compression on 528Hz Sound Healing</a><span>August 12, 2026</span></li>
+        <li><a href="/blog/posts/2026-08-12-exploring-the-healing-powers-of-sound-and-light-with-gail-lynn.html">Exploring the Healing Powers of Sound and Light with Gail Lynn</a><span>August 12, 2026</span></li>
+        <li><a href="/blog/posts/2026-08-12-healing-through-sound-a-transformative-experience-with-the-harmonic-egg-app.html">Healing Through Sound: A Transformative Experience with the Harmonic Egg® App</a><span>August 12, 2026</span></li>
+        <li><a href="/blog/posts/2026-08-12-exploring-healing-through-science-and-spirituality-a-conversation-with-gail-lynn.html">Exploring Healing Through Science and Spirituality: A Conversation with Gail Lynn</a><span>August 12, 2026</span></li>
+        <li><a href="/blog/posts/2026-08-12-exploring-the-healing-power-of-nature-and-frequency-with-gail-lynn.html">Exploring the Healing Power of Nature and Frequency with Gail Lynn</a><span>August 12, 2026</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-box">
+          <h3>About Harmonic Egg</h3>
+          <p class="sidebar-about">The Harmonic Egg&reg; is a sound and light healing wellness experience, blending sacred geometry, frequency, and bio-resonance to support balance and transformation.</p>
+          <a class="sidebar-link" href="https://harmonicegg.com">Visit harmonicegg.com</a>
+        </div>
+      </aside>
+  </div>
 
   <footer>
     <div class="container">
       <p><a href="https://harmonicegg.com">Harmonic Egg Official</a> / <a href="https://github.com/Harmonic-Egg/blog">GitHub</a></p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var searchInput = document.getElementById('blog-search');
+      var postsGrid = document.getElementById('posts');
+      var pagination = document.getElementById('pagination');
+      var originalGridHtml = postsGrid.innerHTML;
+      var originalPaginationDisplay = pagination ? pagination.style.display : null;
+      var allPosts = null;
+
+      function escapeHtmlJs(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      function renderResults(posts) {
+        if (posts.length === 0) {
+          postsGrid.innerHTML = '<div class="empty-state"><p>No posts match your search.</p></div>';
+          return;
+        }
+        postsGrid.innerHTML = posts.map(function(p) {
+          var thumb = p.featuredImage ? '<img class="post-thumb" src="' + p.featuredImage + '" alt="" loading="lazy">' : '';
+          return '<a class="post-card" href="/blog/' + p.filename + '">' + thumb +
+            '<div class="post-card-body"><h2>' + escapeHtmlJs(p.title) + '</h2>' +
+            '<div class="meta">' + p.date + '</div>' +
+            '<p>' + escapeHtmlJs(p.excerpt) + '</p></div></a>';
+        }).join('');
+      }
+
+      searchInput.addEventListener('input', function() {
+        var q = searchInput.value.trim().toLowerCase();
+        if (!q) {
+          postsGrid.innerHTML = originalGridHtml;
+          if (pagination) pagination.style.display = originalPaginationDisplay || '';
+          return;
+        }
+        if (pagination) pagination.style.display = 'none';
+        var loadPromise = allPosts ? Promise.resolve(allPosts) : fetch('/blog/posts.json').then(function(r) { return r.json(); });
+        loadPromise.then(function(posts) {
+          allPosts = posts;
+          var filtered = posts.filter(function(p) {
+            return p.title.toLowerCase().indexOf(q) !== -1 || (p.excerpt || '').toLowerCase().indexOf(q) !== -1;
+          });
+          renderResults(filtered);
+        });
+      });
+    })();
+  </script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 </body>
 </html>
